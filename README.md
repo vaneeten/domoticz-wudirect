@@ -32,6 +32,11 @@ Installation and setup
 ```bash
 cd domoticz/plugins
 ```
+or, in case you use the official Domoticz Docker image on a Synology:
+Open a bash terminal to your Docker instance and type:
+```bash
+cd userdata/plugins  
+```
 or, in case you use [Jadahl's Domoticz for Synology](https://www.jadahl.com):
 ```bash
 cd /volume1/@appstore/domoticz/var/plugins  
@@ -46,6 +51,11 @@ Or (if you need elevated rights):
 
 ```bash
 sudo git clone https://github.com/vaneeten/domoticz-wudirect.git
+```
+Then make sure it has the execute bit set
+```bash
+cd domoticz-wudirect
+chmod +x plugin.py
 ```
 Finally:  
 

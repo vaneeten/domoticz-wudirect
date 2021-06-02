@@ -37,7 +37,7 @@ SensorTable = {
     'humidity'        :    {
         'nr'    : 1,
         'name'  : 'Humidity Outdoor',
-        'type'  : 'Humidity',
+        'type'  : 'Custom',
         'scale' : 1.0,
         'offset': 0.0,
         'unit'  : '%'
@@ -109,7 +109,7 @@ SensorTable = {
     'indoorhumidity':    {
         'nr'    : 10,
         'name'  : 'Humidity Indoor',
-        'type'  : 'Humidity',
+        'type'  : 'Custom',
         'scale' : 1.0,
         'offset': 0.0,
         'unit'  : '%'

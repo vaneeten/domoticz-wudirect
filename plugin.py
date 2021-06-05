@@ -7,7 +7,7 @@
 # Some functions borrowed from https://github.com/ffes/domoticz-buienradar
 #
 """
-<plugin key="WuDirect" name="Wunderground Direct Receiver" author="mveeten" version="0.1.0" wikilink="" externallink="https://github.com/vaneeten/domoticz-wudirect">
+<plugin key="WuDirect" name="Wunderground Direct Receiver" author="mveeten" version="0.2.0" wikilink="" externallink="https://github.com/vaneeten/domoticz-wudirect">
     <description>
         <h2>WuDirect</h2><br/>
         Domoticz plugin for direct interface with Personal Weather Stations.<br/>
@@ -40,6 +40,8 @@ SensorTable = {
         'type'  : 'Custom',
         'scale' : 1.0,
         'offset': 0.0,
+        'min'   : 0,
+        'max'   : 100,
         'unit'  : '%'
     },
     'monthlyrainin'    :    {
@@ -48,6 +50,8 @@ SensorTable = {
         'type'  : '',
         'scale' : 1.0,
         'offset': 0.0,
+        'min'   : 0,
+        'max'   : 100000,
         'unit'  : ''
     },
     'solarradiation':    {
@@ -56,6 +60,8 @@ SensorTable = {
         'type'  : 'Solar Radiation',
         'scale' : 1.0,
         'offset': 0.0,
+        'min'   : 0,
+        'max'   : 1380,
         'unit'  : 'W/m^2'
     },
     'rtfreq'        :    {
@@ -64,6 +70,8 @@ SensorTable = {
         'type'  : '',
         'scale' : 1.0,
         'offset': 0.0,
+        'min'   : -100,
+        'max'   : 100,
         'unit'  : ''
     },
     'dewptf'        :    {
@@ -72,6 +80,8 @@ SensorTable = {
         'type'  : 'Temperature',
         'scale' : 1.0/1.8,  # Farhrenheit to Celsius
         'offset': -32.0/1.8,
+        'min'   : -100,
+        'max'   : 100,
         'unit'  : 'C'
     },
     'baromin'    :    {
@@ -80,6 +90,8 @@ SensorTable = {
         'type'  : 'Pressure',
         'scale' : 33.86,    # Inches Mg to hPa
         'offset': 0.0,
+        'min'   : 800,
+        'max'   : 1040,
         'unit'  : 'hPa'
     },
     'tempf'        :    {
@@ -88,6 +100,8 @@ SensorTable = {
         'type'  : 'Temperature',
         'scale' : 1.0/1.8,
         'offset': -32.0/1.8,
+        'min'   : -100,
+        'max'   : 100,
         'unit'  : 'C'
     },
     'windspeedmph':    {
@@ -96,6 +110,8 @@ SensorTable = {
         'type'  : 'Custom',
         'scale' : 1.609344,     # mph to km/h
         'offset': 0.0,
+        'min'   : 0,
+        'max'   : 400,
         'unit'  : 'km/h'
     },
     'windchillf':    {
@@ -104,6 +120,8 @@ SensorTable = {
         'type'  : 'Temperature',
         'scale' : 1.0/1.8,
         'offset': -32.0/1.8,
+        'min'   : -100,
+        'max'   : 100,
         'unit'  : 'C'
     },
     'indoorhumidity':    {
@@ -112,6 +130,8 @@ SensorTable = {
         'type'  : 'Custom',
         'scale' : 1.0,
         'offset': 0.0,
+        'min'   : 0,
+        'max'   : 100,
         'unit'  : '%'
     },
     'rainin'        :    {
@@ -120,6 +140,8 @@ SensorTable = {
         'type'  : 'Custom',
         'scale' : 25.4,  # inch to mm
         'offset': 0.0,
+        'min'   : 0,
+        'max'   : 1000,
         'unit'  : 'mm/h'
     },
     'ID'        :    {
@@ -128,6 +150,8 @@ SensorTable = {
         'type'  : '',
         'scale' : 1.0,
         'offset': 0.0,
+        'min'   : '',
+        'max'   : '',
         'unit'  : ''
     },
     'dateutc'   :    {
@@ -136,6 +160,8 @@ SensorTable = {
         'type'  : '',
         'scale' : 1.0,
         'offset': 0.0,
+        'min'   : '',
+        'max'   : '',
         'unit'  : ''
     },
     'UV'        :    {
@@ -144,6 +170,8 @@ SensorTable = {
         'type'  : 'Custom',
         'scale' : 1.0,
         'offset': 0.0,
+        'min'   : 0,
+        'max'   : 50,
         'unit'  : ''
     },
     'indoortempf':    {
@@ -152,6 +180,8 @@ SensorTable = {
         'type'  : 'Temperature',
         'scale' : 1.0/1.8,
         'offset': -32.0/1.8,
+        'min'   : -100,
+        'max'   : 100,
         'unit'  : 'C'
     },
     'winddir'   :    {
@@ -160,6 +190,8 @@ SensorTable = {
         'type'  : 'Custom',
         'scale' : 1.0,
         'offset': 0.0,
+        'min'   : -360,
+        'max'   : 360,
         'unit'  : 'Deg'
     },
     'absbaromin':    {
@@ -168,6 +200,8 @@ SensorTable = {
         'type'  : 'Pressure',
         'scale' : 33.86,    # Inches Mg to hPa
         'offset': 0.0,
+        'min'   : 800,
+        'max'   : 1040,
         'unit'  : ''
     },
     'windgustmph':    {
@@ -176,6 +210,8 @@ SensorTable = {
         'type'  : 'Custom',
         'scale' : 1.609344,     # mph to km/h
         'offset': 0.0,
+        'min'   : 0,
+        'max'   : 400,
         'unit'  : 'km/h'
     },
     'dailyrainin':    {
@@ -184,6 +220,8 @@ SensorTable = {
         'type'  : 'Custom',
         'scale' : 25.4,  # inch to mm
         'offset': 0.0,
+        'min'   : 0,
+        'max'   : 10000,
         'unit'  : 'mm'
     }
 }
@@ -278,20 +316,25 @@ class BasePlugin:
                     unitnr = device["nr"]
                     scale  = device["scale"]
                     offset = device["offset"]
+                    minval = device["min"]
+                    maxval = device["max"]
                     self.Data[key] = None
                     if Parameters["Mode6"] != "Normal":
                         Domoticz.Log("Updating sensor: %s (Scale %.3f, offset %.3f" % (str(unitnr),scale,offset))
                     try:
                         if (is_number(value)):
                             fvalue = float(value) * scale + offset
-                            svalue = "%.1f" % fvalue
-                            UpdateDevice(unitnr,0,svalue)
-                            svalue = "%.6f" % fvalue
-                            self.Data[key] = svalue;
+                            if (fvalue >= minval and fvalue <= maxval):
+                                svalue = "%.1f" % fvalue
+                                UpdateDevice(unitnr,0,svalue)
+                                svalue = "%.6f" % fvalue
+                                self.Data[key] = svalue
+                            else:
+                                Domoticz.Log("Sensor value for device %i out of range and discarded: %.1f" % (unitnr, fvalue))
                         else:
                             Domoticz.Log("Sensor value for device %i NOT numeric: %s" % (unitnr, str(value)))
                             UpdateDevice(unitnr,0,value)
-                            self.Data[key] = svalue;
+                            self.Data[key] = svalue
                     except:
                         Domoticz.Log("Sensor update EXCEPTION for unit %i" % unitnr)
                 else:
@@ -304,6 +347,7 @@ class BasePlugin:
         for key,device in CompositeSensors.items():
             unitnr = device["nr"]
             data_lst = []
+            value = None
             for src in device["src"]:                
                 if (src[0] == '_'):
                     function,paramstr = src[1:].split(',',1)
@@ -315,18 +359,18 @@ class BasePlugin:
                     elif (function == 'winddir'):
                         value = getWindDirection(parseFloatValue(self.Data[params[0]]))
                     elif (function == 'rain100'):
-                        value = "%.1f" % ( parseFloatValue(self.Data[params[0]]) * 100.0 )
+                        value = floatToString( parseFloatValue(self.Data[params[0]]) * 100.0 )
                     elif (function == 'windms10'):
-                        value = "%.1f" % ( parseFloatValue(self.Data[params[0]]) * 10.0 /3.6 )
+                        value = floatToString( parseFloatValue(self.Data[params[0]]) * 10.0 /3.6 )
                 else:
                     value = self.Data[src]
                     if (is_number(value)):
                         fvalue = float(value)
                         value = "%.1f" % fvalue
                 if (value !=  None):
-                    data_lst.append( value );
+                    data_lst.append( value )
                 else:
-                    data_lst.append( 0 );
+                    data_lst.append( 0 )
             svalue = ';'.join(data_lst)
             UpdateDevice(unitnr,0,svalue)
         
@@ -601,3 +645,16 @@ def parseFloatValue(s):
         return float(s)
     except:
         return None
+
+#
+# Format a float to a string and return empty string if no valid float is given
+#
+def floatToString(fval):
+    if fval == None:
+        return ""
+    retval = ""
+    try:
+        retval = "%.1f" % fval
+    except:
+        retval = ""
+    return retval 

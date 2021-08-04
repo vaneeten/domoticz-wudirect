@@ -7,7 +7,7 @@
 # Some functions borrowed from https://github.com/ffes/domoticz-buienradar
 #
 """
-<plugin key="WuDirect" name="Wunderground Direct Receiver" author="mveeten" version="0.2.1" wikilink="" externallink="https://github.com/vaneeten/domoticz-wudirect">
+<plugin key="WuDirect" name="Wunderground Direct Receiver" author="mveeten" version="0.2.2" wikilink="" externallink="https://github.com/vaneeten/domoticz-wudirect">
     <description>
         <h2>WuDirect</h2><br/>
         Domoticz plugin for direct interface with Personal Weather Stations.<br/>

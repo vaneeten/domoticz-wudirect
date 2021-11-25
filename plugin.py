@@ -370,7 +370,7 @@ class BasePlugin:
                 if (value !=  None and type(value) == str):
                     data_lst.append( value )
 
-            if len(data_lst) == len(src):   # exactly right amount of values?
+            if len(data_lst) == len(device["src"]):   # exactly right amount of values?
                 svalue = ';'.join(data_lst)
                 UpdateDevice(unitnr,0,svalue)
             else:

@@ -373,6 +373,8 @@ class BasePlugin:
             if len(data_lst) == len(src):   # exactly right amount of values?
                 svalue = ';'.join(data_lst)
                 UpdateDevice(unitnr,0,svalue)
+            else:
+                Domoticz.Log("Device %s expected %i parameters but received %i." % (key, len(src), len(data_lst)))
         
         # EXAMPLE URL:
         # /weatherstation/updateweatherstation.php?ID=IXXXXXX&PASSWORD=NoKeyNeeded&indoortempf=72.9&tempf=66.9&dewptf=63.0&windchillf=66.9&indoorhumidity=65&humidity=87&windspeedmph=1.6&windgustmph=2.2&winddir=196&absbaromin=29.740&baromin=29.918&rainin=0.000&dailyrainin=0.059&weeklyrainin=1.220&monthlyrainin=1.500&solarradiation=86.73&UV=0&dateutc=2019-08-17%2012:42:23&softwaretype=EasyWeatherV1.4.1&action=updateraw&realtime=1&rtfreq=5

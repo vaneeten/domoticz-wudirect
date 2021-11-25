@@ -333,8 +333,8 @@ class BasePlugin:
                                 Domoticz.Log("Sensor value for device %i out of range and discarded: %.1f" % (unitnr, fvalue))
                         else:
                             Domoticz.Log("Sensor value for device %i NOT numeric: %s" % (unitnr, str(value)))
-                            UpdateDevice(unitnr,0,value)
-                            self.Data[key] = svalue
+                            # UpdateDevice(unitnr,0,value)
+                            self.Data[key] = None
                     except:
                         Domoticz.Log("Sensor update EXCEPTION for unit %i" % unitnr)
                 else:
@@ -369,10 +369,8 @@ class BasePlugin:
                         value = "%.1f" % fvalue
                 if (value !=  None and type(value) == str):
                     data_lst.append( value )
-                else:
-                    data_lst.append( '0' )
 
-            if len(data_lst) > 0:
+            if len(data_lst) == len(src):   # exactly right amount of values?
                 svalue = ';'.join(data_lst)
                 UpdateDevice(unitnr,0,svalue)
         

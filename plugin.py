@@ -352,6 +352,8 @@ class BasePlugin:
                 if (src[0] == '_'):
                     function,paramstr = src[1:].split(',',1)
                     params = paramstr.split(',')
+                    if None in params:
+                        continue
                     if (function == 'forecast'):
                         value = str(getBarometerForecast(parseFloatValue(self.Data[params[0]])))
                     elif (function == 'humstat'):

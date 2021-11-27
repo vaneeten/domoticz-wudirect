@@ -7,7 +7,7 @@
 # Some functions borrowed from https://github.com/ffes/domoticz-buienradar
 #
 """
-<plugin key="WuDirect" name="Wunderground Direct Receiver" author="mveeten" version="0.2.2" wikilink="" externallink="https://github.com/vaneeten/domoticz-wudirect">
+<plugin key="WuDirect" name="Wunderground Direct Receiver" author="mveeten" version="0.2.3" wikilink="" externallink="https://github.com/vaneeten/domoticz-wudirect">
     <description>
         <h2>WuDirect</h2><br/>
         Domoticz plugin for direct interface with Personal Weather Stations.<br/>
@@ -333,8 +333,8 @@ class BasePlugin:
                                 Domoticz.Log("Sensor value for device %i out of range and discarded: %.1f" % (unitnr, fvalue))
                         else:
                             Domoticz.Log("Sensor value for device %i NOT numeric: %s" % (unitnr, str(value)))
-                            UpdateDevice(unitnr,0,value)
-                            self.Data[key] = svalue
+                            # UpdateDevice(unitnr,0,value)
+                            self.Data[key] = None
                     except:
                         Domoticz.Log("Sensor update EXCEPTION for unit %i" % unitnr)
                 else:
@@ -369,12 +369,12 @@ class BasePlugin:
                         value = "%.1f" % fvalue
                 if (value !=  None and type(value) == str):
                     data_lst.append( value )
-                else:
-                    data_lst.append( '0' )
 
-            if len(data_lst) > 0:
+            if len(data_lst) == len(device["src"]):   # exactly right amount of values?
                 svalue = ';'.join(data_lst)
                 UpdateDevice(unitnr,0,svalue)
+            else:
+                Domoticz.Log("Device %s expected %i parameters but received %i." % (key, len(src), len(data_lst)))
         
         # EXAMPLE URL:
         # /weatherstation/updateweatherstation.php?ID=IXXXXXX&PASSWORD=NoKeyNeeded&indoortempf=72.9&tempf=66.9&dewptf=63.0&windchillf=66.9&indoorhumidity=65&humidity=87&windspeedmph=1.6&windgustmph=2.2&winddir=196&absbaromin=29.740&baromin=29.918&rainin=0.000&dailyrainin=0.059&weeklyrainin=1.220&monthlyrainin=1.500&solarradiation=86.73&UV=0&dateutc=2019-08-17%2012:42:23&softwaretype=EasyWeatherV1.4.1&action=updateraw&realtime=1&rtfreq=5

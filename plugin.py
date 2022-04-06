@@ -361,9 +361,17 @@ class BasePlugin:
                     elif (function == 'winddir'):
                         value = getWindDirection(parseFloatValue(self.Data[params[0]]))
                     elif (function == 'rain100'):
-                        value = floatToString( parseFloatValue(self.Data[params[0]]) * 100.0 )
+                        rain = parseFloatValue(self.Data[params[0]])
+                        if rain != None:
+                            value = floatToString(rain * 100.0 )
+                        else:
+                            value = None
                     elif (function == 'windms10'):
-                        value = floatToString( parseFloatValue(self.Data[params[0]]) * 10.0 /3.6 )
+                        wind = parseFloatValue(self.Data[params[0]])
+                        if wind != None:
+                            value = floatToString(wind * 10.0 /3.6 )
+                        else:
+                            value = None
                 else:
                     value = self.Data[src]
                     if (is_number(value)):

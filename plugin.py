@@ -7,7 +7,7 @@
 # Some functions borrowed from https://github.com/ffes/domoticz-buienradar
 #
 """
-<plugin key="WuDirect" name="Wunderground Direct Receiver" author="mveeten" version="0.2.3" wikilink="" externallink="https://github.com/vaneeten/domoticz-wudirect">
+<plugin key="WuDirect" name="Wunderground Direct Receiver" author="mveeten" version="0.2.5" wikilink="" externallink="https://github.com/vaneeten/domoticz-wudirect">
     <description>
         <h2>WuDirect</h2><br/>
         Domoticz plugin for direct interface with Personal Weather Stations.<br/>
@@ -373,10 +373,11 @@ class BasePlugin:
                         else:
                             value = None
                 else:
-                    value = self.Data[src]
-                    if (is_number(value)):
-                        fvalue = float(value)
-                        value = "%.1f" % fvalue
+                    if src in self.Data:
+                        value = self.Data[src]
+                        if (is_number(value)):
+                            fvalue = float(value)
+                            value = "%.1f" % fvalue
                 if (value !=  None and type(value) == str):
                     data_lst.append( value )
 

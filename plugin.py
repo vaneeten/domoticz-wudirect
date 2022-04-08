@@ -7,7 +7,7 @@
 # Some functions borrowed from https://github.com/ffes/domoticz-buienradar
 #
 """
-<plugin key="WuDirect" name="Wunderground Direct Receiver" author="mveeten" version="0.2.5" wikilink="" externallink="https://github.com/vaneeten/domoticz-wudirect">
+<plugin key="WuDirect" name="Wunderground Direct Receiver" author="mveeten" version="0.2.6" wikilink="" externallink="https://github.com/vaneeten/domoticz-wudirect">
     <description>
         <h2>WuDirect</h2><br/>
         Domoticz plugin for direct interface with Personal Weather Stations.<br/>
@@ -355,11 +355,24 @@ class BasePlugin:
                     if None in params:
                         continue
                     if (function == 'forecast'):
-                        value = str(getBarometerForecast(parseFloatValue(self.Data[params[0]])))
+                        paramval = parseFloatValue(self.Data[params[0]])
+                        if paramval != None:
+                            value = str(getBarometerForecast(paramval))
+                        else:
+                            value = None
                     elif (function == 'humstat'):
-                        value = str (getHumidityStatus(parseFloatValue(self.Data[params[0]]),parseFloatValue(self.Data[params[1]])))
+                        param0val = parseFloatValue(self.Data[params[0]])
+                        param1val = parseFloatValue(self.Data[params[1]])
+                        if param0val != None and param1val != None:
+                            value = str (getHumidityStatus(param0val,param1val))
+                        else:
+                            value = None
                     elif (function == 'winddir'):
-                        value = getWindDirection(parseFloatValue(self.Data[params[0]]))
+                        paramval = parseFloatValue(self.Data[params[0]])
+                        if paramval != None:
+                            value = getWindDirection(paramval)
+                        else:
+                            value = None                            
                     elif (function == 'rain100'):
                         rain = parseFloatValue(self.Data[params[0]])
                         if rain != None:
